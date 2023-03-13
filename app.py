@@ -4,7 +4,7 @@ from flask import Flask, request, app, jsonify, url_for, render_template, redire
 
 
 app = Flask(__name__)
-model = torch.jit.load('resnet_food.pt')
+model = torch.jit.load('resnet_food.pt',map_location=torch.device("cpu"))
 model.eval()
 
 
@@ -23,7 +23,6 @@ def predict_api():
     _, pred = torch.max(output)
     print(pred)
     return(jsonify(pred))
-
 
 
 
