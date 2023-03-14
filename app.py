@@ -1,5 +1,4 @@
 import torch
-import numpy as np
 import torchvision.transforms as transforms
 from flask import Flask, request, app, jsonify, url_for, render_template, redirect, flash, session, escape
 from PIL import Image
@@ -23,7 +22,7 @@ def predict_api():
     model.eval()
     data = request.files['image']
     img = Image.open(data.stream)
-    print("Img height and img width: ", img.height,img.width)
+    # print("Img height and img width: ", img.height,img.width)
     transformations = transforms.Compose([transforms.Resize((224,224)),
                                           transforms.ToTensor(),transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
     input_data = transformations(img)
@@ -34,6 +33,8 @@ def predict_api():
     result = labels[pred.item()]
     return(jsonify(result,conf.item()*100))
 
+# @app.route('/predict',methods = ['POST'])
+# def predict():
 
 
 if __name__=='__main__':

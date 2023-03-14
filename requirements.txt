@@ -1,7 +1,4 @@
 Flask
 torch
 torchvision
-numpy
-matplotlib
 pillow
-numpy
