@@ -16,8 +16,8 @@ with open("labels.txt") as f:
 def home():
     return render_template('home.html')
 
-@app.route('/predict_api', methods = ['POST'])
-def predict_api():
+@app.route('/predict', methods = ['POST'])
+def predict():
     model = torch.jit.load('resnet_food.pt', map_location=torch.device('cpu'))
     model.eval()
     data = request.files['image']
@@ -31,7 +31,7 @@ def predict_api():
     pred = torch.argmax(output)
     conf = torch.max(output)
     result = labels[pred.item()]
-    return(jsonify(result,conf.item()*100))
+    return render_template('home.html',result1=result,confi = '%.2f'%(conf.item()*100))
 
 # @app.route('/predict',methods = ['POST'])
 # def predict():

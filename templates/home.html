@@ -1,4 +1,55 @@
 <!DOCTYPE html>
-<h1>
-    Hello World!
-</h1>
+<html>
+    <head>
+        <title>Food Vision App</title>
+        <style scoped>
+            body {
+                display: block;
+                background-color: rgb(61, 42, 79);
+                color: rgb(170, 199, 225);
+                text-align: center;
+            }
+            a {
+                text-decoration: none;
+                color: rgb(118, 136, 153);
+            }
+            .container {
+                padding: 1rem;
+            }
+            .header {
+                font-size: x-large;
+                font-weight: bolder;
+            }
+            .Primary-btn {
+                border: none;
+                color: rgb(61, 42, 79);
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0px 8px 15px rgba(17, 17, 17, 0.75);
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="header container">
+            Food Vision App
+        </h1>
+        <h3 class="sub-header container">
+            Upload your food picture and this machine learning model will attempt to classify your food into 101 
+            available classes sourced from 
+            <a href="https://www.kaggle.com/datasets/dansbecker/food-101">Food-101 dataset</a>. 
+        </h3>
+
+        <form action="{{ url_for('predict')}}"method="post" enctype="multipart/form-data">
+            <input type="file" id="image" name = "image">
+            <button class="Primary-btn">Predict</button>
+        </form>
+        <p>
+            Classification: {{result1}} </br>
+            Confidence: {{confi}}% <br>
+    </body>
+</html>
