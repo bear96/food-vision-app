@@ -9,6 +9,6 @@ The model was only trained for 5 epochs and acheived an accuracy of 76% on test 
 
 ## App
 
-The app is available on [Heroku](https://food-vision-app.herokuapp.com/). It's likely that you may not find the app to be working as Heroku is a paid platform and I probably ran out of money. :laughing:
+The app is available on [Heroku](https://food-vision-app.herokuapp.com/). It's likely that you may not find the app to be working as Heroku has become a paid platform and I probably ran out of money. :laughing:
 
 ### More improvements will be made in the future in all aspects. The website design is rudimentary and I will probably change it into something better soon. Thinking of using a single-page web app in JS instead of plain HTML.
